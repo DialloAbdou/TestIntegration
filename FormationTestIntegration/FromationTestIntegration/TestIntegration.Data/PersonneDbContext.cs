@@ -3,7 +3,7 @@ using TestIntegration.Models;
 
 namespace TestIntegration.Data
 {
-    public class PersonneDbContext : DbContext
+    public class PersonneDbContext: DbContext
     {
         public DbSet<Personne>  Personnes { get; set; }
 

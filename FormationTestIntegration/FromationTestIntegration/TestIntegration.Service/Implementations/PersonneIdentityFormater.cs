@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestIntegration.Models;
+using TestIntegration.Service.Abstractions;
 
 namespace TestIntegration.Service.Implementations
 {
-    internal class PersonneIdentityFormater
+    public class PersonneIdentityFormater : IPersonneIdentityFormater
     {
+        public string FormateIdentity(Personne personne)
+        {
+            return $"{personne.Nom}, {personne.Prenom}";
+        }
     }
 }

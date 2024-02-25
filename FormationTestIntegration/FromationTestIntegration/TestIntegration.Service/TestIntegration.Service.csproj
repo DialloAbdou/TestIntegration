@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TestIntegration.Data\TestIntegration.Data.csproj" />
+    <ProjectReference Include="..\TestIntegration.Model\TestIntegration.Models.csproj" />
+  </ItemGroup>
+
 </Project>
