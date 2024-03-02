@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,10 @@ namespace TestIntegration.Service.Implementations
 {
     public class TextOutput : ITextOutput
     {
-        public void WriteLine(string text)
+        public string getChaineOut(string text)
         {
-            Console.WriteLine(text);
+            return $"{text}";
         }
+
     }
 }

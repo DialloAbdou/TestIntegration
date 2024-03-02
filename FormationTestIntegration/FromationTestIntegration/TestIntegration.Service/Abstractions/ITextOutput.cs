@@ -8,6 +8,6 @@ namespace TestIntegration.Service.Abstractions
 {
     public interface ITextOutput
     {
-        void WriteLine(string text);
+        string getChaineOut(string text);
     }
 }
