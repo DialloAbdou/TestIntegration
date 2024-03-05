@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IntegrationDemo.Services.Implementations;
+namespace Integrat(ionDemo.Services.Implementations;
 
 public class ConsoleTextOutput : ITextOutput
 {

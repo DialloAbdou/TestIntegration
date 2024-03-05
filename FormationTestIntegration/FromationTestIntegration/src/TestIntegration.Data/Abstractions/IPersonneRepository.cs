@@ -6,6 +6,6 @@ namespace TestIntegration.Data.Abstractions
     {
         Task AddPersonne(Personne personne);
 
-        IAsyncEnumerable<Personne> GetAllPersonnes();
+        Task<IEnumerable<Personne>> GetAllPersonnes();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,9 @@ namespace TestIntegration.Data.Implementations
            await _personneDbContext.Personnes.AddAsync(personne);
         }
 
-        public IAsyncEnumerable<Personne> GetAllPersonnes()
+        public async  Task<IEnumerable<Personne>> GetAllPersonnes()
         {
-            return _personneDbContext.Personnes.AsAsyncEnumerable();
+            return await _personneDbContext.Personnes.ToListAsync();
         }
     }
 }

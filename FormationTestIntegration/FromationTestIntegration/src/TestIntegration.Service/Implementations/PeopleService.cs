@@ -33,7 +33,7 @@ namespace TestIntegration.Service.Implementations
         public async Task<IEnumerable<string>> GetAllPersonnesByString()
         {
             List<String> listString = new List<String>();
-            await foreach (var personne in _personneRepository.GetAllPersonnes())
+             foreach (var personne in await _personneRepository.GetAllPersonnes())
             {
                listString.Add( _textOutput.getChaineOut($" {_personneIdentityFormater.FormateIdentity(personne)}"));
             }
