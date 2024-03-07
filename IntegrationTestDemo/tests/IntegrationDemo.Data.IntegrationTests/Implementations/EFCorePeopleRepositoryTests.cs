@@ -23,7 +23,7 @@ namespace IntegrationDemo.Data.IntegrationTests.Implementations
         }
 
         private EFCorePeopleRepository GetRepo()
-            => new(context);        
+            => new EFCorePeopleRepository(context);        
 
         [Fact]
         public async Task Add_Should_Write_Person_In_Database()

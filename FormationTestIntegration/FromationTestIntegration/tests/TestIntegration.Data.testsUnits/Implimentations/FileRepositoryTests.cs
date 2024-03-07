@@ -30,9 +30,6 @@ namespace TestIntegration.Data.testsUnits.Implimentations
 
         }
 
-
-
-
         [Fact]
         public async Task Add_Should_Weite_Personne_In_File_()
         {

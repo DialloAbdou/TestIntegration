@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 // Injection Dépendance
-builder.Services.AddTransient<IPersonneRepository, PersonneRepository>();
+//builder.Services.AddTransient<IPersonneRepository, PersonneRepository>();
 builder.Services.AddTransient<IPersonneIdentityFormater, PersonneIdentityFormater>();
 builder.Services.AddTransient<ITextOutput, TextOutput>();
 builder.Services.AddTransient<IPeopleService, PeopleService>();

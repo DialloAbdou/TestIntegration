@@ -18,7 +18,8 @@ namespace TestIntegration.Data.Implementations
         }
         public async Task AddPersonne(Personne personne)
         {
-           await _personneDbContext.Personnes.AddAsync(personne);
+              _personneDbContext.Personnes.Add(personne);
+            await _personneDbContext.SaveChangesAsync();
         }
 
         public async  Task<IEnumerable<Personne>> GetAllPersonnes()
