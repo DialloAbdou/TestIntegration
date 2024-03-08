@@ -8,48 +8,54 @@ using System.Threading.Tasks;
 
 namespace IntegrationDemo.Data.IntegrationTests.Implementations
 {
-    public class EFCorePeopleRepositoryTests : 
-        IAsyncLifetime,
-        IClassFixture<DatabaseFixture>
+    public class EFCorePeopleRepositoryTests : IAsyncLifetime,IClassFixture<DatabaseFixture>
+    
     {
-        private readonly DatabaseFixture db;
-        private readonly IntegrationDbContext context;
-
-        public EFCorePeopleRepositoryTests(
-            DatabaseFixture db)
+     
+        private readonly DatabaseFixture _dbfixture;
+        public EFCorePeopleRepositoryTests( DatabaseFixture dbfixture)
         {
-            this.db = db;
-            context = db.CreateDbContext();
+            _dbfixture = dbfixture;
         }
-
-        private EFCorePeopleRepository GetRepo()
-            => new EFCorePeopleRepository(context);        
+        private  EFCorePeopleRepository GetRepo()
+        {
+     
+            return new EFCorePeopleRepository(_dbfixture.CreateDbContext());
+        }
+  
+              
 
         [Fact]
         public async Task Add_Should_Write_Person_In_Database()
         {
+
             var repo = GetRepo();
 
             await repo.Add(new()
             {
-                Name = "Christophe",
-                LastName = "MOMMER",
-                Birthday = new(1988, 12, 18)
+                Name = "Abdou",
+                LastName = "Diallo",
+                Birthday = new(1984, 5, 6)
             });
 
-            using var ctx = db.CreateDbContext();
-            var person = await ctx.People.FirstOrDefaultAsync();
-            person.Should().NotBeNull();
-            person.Name.Should().Be("Christophe");
+            var context = _dbfixture.CreateDbContext();
+            var personne = await context.People.FirstOrDefaultAsync();
+            personne.Should().NotBeNull();
+            personne!.Name.Should().Be("Abdou");
+            personne!.LastName.Should().Be("Diallo");
+
+
         }
 
         public async Task InitializeAsync()
         {
+            var context = _dbfixture.CreateDbContext(); 
             await context.Database.EnsureCreatedAsync();
         }
 
         public async Task DisposeAsync()
         {
+            var context = _dbfixture.CreateDbContext();
             await context.Database.EnsureDeletedAsync();
         }
     }

@@ -31,26 +31,26 @@ public class PeopleServiceTests
         textOutputMock.Verify(m => m.WriteLine("Hello Christophe Mommer !"), Times.Once());
     }
 
-//    [Fact]
-//    public async Task PeopleService_Should_Write_To_Console()
-//    {
-//        peopleRepoMock.Setup(m => m.GetAll())
-//            .Returns(new[]
-//            {
-//                new Person{ Name = "Christophe", LastName = "Mommer"}
-//            }.ToAsyncEnumerable());
+    [Fact]
+    public async Task PeopleService_Should_Write_To_Console()
+    {
+        peopleRepoMock.Setup(m => m.GetAll())
+            .Returns(new[]
+            {
+                    new Person{ Name = "Christophe", LastName = "Mommer"}
+            }.ToAsyncEnumerable());
 
-//        var stringWriter = new StringWriter();
-//        Console.SetOut(stringWriter);
+        var stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
 
-//        var service = new PeopleService(
-//            peopleRepoMock.Object,
-//            new PersonIdentityFormater(),
-//            new ConsoleTextOutput()
-//            );
+        var service = new PeopleService(
+            peopleRepoMock.Object,
+            new PersonIdentityFormater(),
+            new ConsoleTextOutput()
+            );
 
-//        await service.SayHelloToAll();
+        await service.SayHelloToAll();
 
-//        stringWriter.ToString().Should().StartWith("Hello Christophe Mommer !");
-//    }
-}
+        stringWriter.ToString().Should().StartWith("Hello Christophe Mommer !");
+         }
+    }
